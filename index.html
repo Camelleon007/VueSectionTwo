@@ -21,7 +21,7 @@
       <button v-on:click="counterUp(myNumber)">Add {{ myNumber }}</button>
       <button v-on:click="counterDown(myNumber)">Remove {{ myNumber }}</button>
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="updateName">
+      <input type="text" v-on:input="updateName($event, 'Kowalski')">
       <p>Name: {{ name }}</p>
     </section>
   </body>

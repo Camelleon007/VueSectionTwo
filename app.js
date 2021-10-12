@@ -13,8 +13,8 @@ const app = Vue.createApp({
     counterDown(num) {
       this.counter -= num;
     },
-    updateName(event) {
-      this.name = event.target.value;
+    updateName(event, lastName) {
+      this.name = event.target.value + ' ' + lastName;
     }
   }
 });
