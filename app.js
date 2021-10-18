@@ -3,13 +3,35 @@ const app = Vue.createApp({
     return {
       counter: 0,
       myNumber: 7,
-      name: '',
-      confirmedName: '',
+      name: "",
+      confirmedName: "",
+      lastName: "Kowalski",
+      fullName: ""
     };
   },
-  methods: {
-    resetInput(){
-      this.name = ''
+  watch: {
+    name(newValue, oldValue) {
+      this.fullName = newValue + " " + this.lastName + " (Previous name: " + oldValue + ")" ;
+      
+    },
+    counter(value) {
+      if (value>49) {
+        this.counter = 0; 
+      }
+    }
+  },
+  computed: {
+    outputFullName() {
+      console.log('Running again...');
+      if (this.name === "") {
+        return "";
+      }
+      return this.name + " " + this.lastName;
+    }
+  },
+  methods: {    
+    resetInput() {
+      this.name = "";
     },
     confirmedInput() {
       this.confirmedName = this.name;
@@ -23,7 +45,7 @@ const app = Vue.createApp({
     },
     counterDown(num) {
       this.counter -= num;
-    },    
+    },
   },
 });
 
